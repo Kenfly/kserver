@@ -39,7 +39,7 @@ Socket::~Socket()
 	close();
 }
 
-void Socket::startUp()
+void Socket::startup()
 {
 	int32_t noblock = 1;
 	int32_t revalue = 1;
@@ -65,7 +65,7 @@ int32_t Socket::open(int32_t family, int32_t type, int32_t protocol)
 	sock_ = (int32_t)::socket(family, type, protocol);
 	if (sock_ < 0) return -1;
 
-	startUp();
+	startup();
 
 	return 0;
 }
@@ -87,7 +87,7 @@ void Socket::setHandle(int32_t sock)
 
 	sock_ = sock;
 
-	startUp();
+	startup();
 }
 
 int32_t Socket::connect(const sockaddr* addr)

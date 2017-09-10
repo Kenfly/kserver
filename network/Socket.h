@@ -3,6 +3,8 @@
 
 #include <stdint.h>
 
+#define DSOCKERR		-1
+
 struct sockaddr;
 
 namespace kit {
@@ -14,7 +16,7 @@ public:
 	Socket(int32_t sock);
 	Socket(int32_t family, int32_t type, int32_t protocol);
 	virtual ~Socket();
-	void startUp();
+	void startup();
 
 	void init();
 

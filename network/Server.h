@@ -3,14 +3,19 @@
 
 namespace kit {
 
+const uint16_t = CONNECTION_LIMIT = 32768;
+
 class Server
 {
 public:
 	Server();
-	bool startUp(const char* ip, int32_t port);
+	void startup(const char* ip, int32_t port);
+	void shutdown();
 
 private:
-	Socket socket_;
+	Socket* socket_;
+
+	Socket* socket_list_[CONNECTION_LIMIT]
 };
 
 } // namespcae kit
